@@ -5,7 +5,7 @@
   "description": "React Hooks, which makes it easy to take photos in your browser.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taroodr/use-scan-image.git"
+    "url": "git+https://github.com/taroodr/use-capture-image.git"
   },
   "license": "MIT",
   "scripts": {
