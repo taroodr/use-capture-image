@@ -1,5 +1,5 @@
 {
-  "name": "use-scan-image",
+  "name": "use-capture-image",
   "author": "taroodr (https://github.com/taroodr)",
   "version": "1.0.1",
   "description": "React Hooks, which makes it easy to take photos in your browser.",

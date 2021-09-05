@@ -1,12 +1,12 @@
-export type UseScanImage = {
+export type UseCaptureImage = {
   constraints?: Omit<MediaStreamConstraints, "audio">;
   quality?: number;
 };
 
-export type UseScanImageResult = {
+export type UseCaptureImageResult = {
   error: Error | null;
   startCamera: () => void;
   stopCamera: () => void;
-  scanImage: () => Promise<Blob>;
+  captureImage: () => Promise<Blob>;
   videoRef: React.RefObject<HTMLVideoElement>;
 };

@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
-import { UseScanImage, UseScanImageResult } from "./type";
+import { UseCaptureImage, UseCaptureImageResult } from "./type";
 
-export function useScanImage({
+export function useCaptureImage({
   constraints,
   quality = 1,
-}: UseScanImage): UseScanImageResult {
+}: UseCaptureImage): UseCaptureImageResult {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [mediaStream, setMediaStream] = useState<MediaStream | null>(null);
   const [error, setError] = useState<Error | null>(null);
@@ -40,7 +40,7 @@ export function useScanImage({
     setMediaStream(null);
   };
 
-  const scanImage = (): Promise<Blob> => {
+  const captureImage = (): Promise<Blob> => {
     return new Promise((resolve, reject) => {
       if (videoRef.current == null) {
         return reject(new Error("video element is null"));
@@ -62,7 +62,7 @@ export function useScanImage({
       canvas.toBlob(
         (blob) => {
           if (blob == null) {
-            setError(new Error("failed to scan image"));
+            setError(new Error("failed to capture image"));
             return;
           }
 
@@ -78,7 +78,7 @@ export function useScanImage({
     error,
     startCamera,
     stopCamera,
-    scanImage,
+    captureImage,
     videoRef,
   };
 }
