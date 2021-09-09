@@ -2,6 +2,15 @@ import * as React from "react";
 import { render } from "react-dom";
 import { useCaptureImage } from "../../dist";
 
+function getDataURL(file: File | Blob): Promise<string | undefined> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result?.toString());
+    reader.onerror = (error) => reject(error);
+  });
+}
+
 const App = () => {
   const { error, startCamera, stopCamera, captureImage, videoRef } =
     useCaptureImage({
@@ -19,6 +28,14 @@ const App = () => {
       },
     });
 
+  const imgRef = React.useRef(null);
+
+  const handleCapture = async () => {
+    const imgBlob = await captureImage();
+    const dataURL = await getDataURL(imgBlob);
+    imgRef.current.src = dataURL;
+  };
+
   return (
     <>
       <div style={{ backgroundColor: "#ccc", width: "400px" }}>
@@ -34,7 +51,10 @@ const App = () => {
       {error && <p>{error.message}</p>}
       <button onClick={stopCamera}>stop camera</button>
       <button onClick={startCamera}>start camera</button>
-      <button onClick={captureImage}>capture image</button>
+      <button onClick={handleCapture}>capture image</button>
+      <div>
+        <img ref={imgRef} />
+      </div>
     </>
   );
 };
