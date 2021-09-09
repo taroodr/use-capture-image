@@ -32,7 +32,9 @@ const App = () => {
 
   const handleCapture = async () => {
     const imgBlob = await captureImage();
-    const dataURL = await getDataURL(imgBlob);
+    const dataURL = await getDataURL(imgBlob).catch((e) => {
+      console.error(e);
+    });
     imgRef.current.src = dataURL;
   };
 
