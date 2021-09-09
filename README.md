@@ -1,7 +1,18 @@
 # useCaptureImage
 React Hooks, which makes it easy to take photos in your browser.
 
-## USAGE 
+## Installation
+```bash
+yarn add use-capture-image
+```
+
+or 
+
+```bash
+npm i use-capture-image
+```
+
+## Usage 
 ```typescript
 import * as React from "react";
 import { render } from "react-dom";
