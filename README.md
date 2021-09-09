@@ -1,6 +1,8 @@
 # useCaptureImage
 React Hooks, which makes it easy to take photos in your browser.
 
+[Demo](https://taroodr.github.io/use-capture-image/)
+
 ## Installation
 ```bash
 yarn add use-capture-image
@@ -37,11 +39,11 @@ const App = () => {
 
   return (
     <>
-      <div style={{ backgroundColor: "#ccc" }}>
+      <div style={{ backgroundColor: "#ccc", width: "400px" }}>
         <video
           className="video"
-          width={window.innerWidth}
-          height={window.innerWidth}
+          width="400px"
+          height="400px"
           autoPlay
           ref={videoRef}
           style={{ display: "block" }}

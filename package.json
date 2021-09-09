@@ -12,7 +12,8 @@
     "build": "microbundle",
     "start": "webpack-dev-server --mode development",
     "build:demo": "webpack --mode production",
-    "lint": "eslint --fix **/*.{ts,tsx}"
+    "lint": "eslint --fix **/*.{ts,tsx}",
+    "deploy": "yarn build:demo && gh-pages -d example/dist"
   },
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -27,6 +28,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.3.2",
     "microbundle": "^0.13.3",
     "prettier": "^2.3.2",
