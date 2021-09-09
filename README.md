@@ -18,7 +18,7 @@ npm i use-capture-image
 ```typescript
 import * as React from "react";
 import { render } from "react-dom";
-import { useCaptureImage } from "../../dist";
+import { useCaptureImage } from "use-capture-image";
 
 function getDataURL(file: File | Blob): Promise<string | undefined> {
   return new Promise((resolve, reject) => {
